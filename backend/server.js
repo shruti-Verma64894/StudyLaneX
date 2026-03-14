@@ -8,7 +8,14 @@ const app = express();
 const contactRoutes = require("./routes/contactRoutes");
 
 // ===== Middlewares =====
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://study-lane-x.vercel.app"
+  ],
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 app.use(express.json()); // convert request body into json
 // ===== Routes =====
 app.use("/api/feedback", feedbackRoutes);
