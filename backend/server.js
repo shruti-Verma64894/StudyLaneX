@@ -8,7 +8,23 @@ const app = express();
 const contactRoutes = require("./routes/contactRoutes");
 
 // ===== Middlewares =====
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://study-lane-x.vercel.app"
+];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST"],
+  credentials: true
+}));
+
 app.use(express.json()); // convert request body into json
 // ===== Routes =====
 app.use("/api/feedback", feedbackRoutes);
