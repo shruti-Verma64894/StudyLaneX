@@ -3,6 +3,11 @@ import "./Contact.css";
 
 const Contact = () => {
 
+  const API_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:5000"
+      : "https://studylanex.onrender.com";
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -10,30 +15,29 @@ const Contact = () => {
   });
 
   const handleChange = (e) => {
-    setForm({...form, [e.target.name]: e.target.value});
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
- 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const res = await fetch("http://localhost:5000/api/contact/send", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(form)
-  });
+    const res = await fetch(`${API_URL}/api/contact/send`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(form)
+    });
 
-  const data = await res.json();
+    const data = await res.json();
 
-  if(data.success){
-    alert("Message sent successfully");
-    setForm({ name:"", email:"", message:"" });
-  } else {
-    alert("Error sending message");
-  }
-};
+    if (data.success) {
+      alert("Message sent successfully");
+      setForm({ name: "", email: "", message: "" });
+    } else {
+      alert("Error sending message");
+    }
+  };
 
   return (
     <section className="contact" id="contact">
