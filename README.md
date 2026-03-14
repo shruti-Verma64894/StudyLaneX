@@ -1,16 +1,98 @@
-# React + Vite
+🎓 StudyLaneX
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+StudyLaneX is a full-stack MERN web application designed to provide students with a modern learning platform where they can explore educational programs, gain guidance, and connect with valuable learning resources.
 
-Currently, two official plugins are available:
+The platform focuses on delivering a clean user experience, responsive design, and seamless communication through a contact form integrated with backend email functionality.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✨ Features
 
-## React Compiler
+- Modern and responsive user interface
+- Student-focused learning platform layout
+- Contact form with backend API integration
+- Email notification system using Nodemailer
+- MongoDB database connectivity
+- Fully deployed full-stack architecture
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Frontend
+
+- React.js
+- HTML5
+- CSS3
+- JavaScript
+
+Backend
+
+- Node.js
+- Express.js
+
+Database
+
+- MongoDB Atlas
+
+Email Service
+
+- Nodemailer (Gmail SMTP)
+
+Deployment
+
+- Vercel (Frontend)
+- Render (Backend)
+
+---
+
+📁 Project Structure
+
+StudyLaneX
+│
+├── frontend
+│   ├── components
+│   ├── pages
+│   └── styles
+│
+├── backend
+│   ├── routes
+│   ├── models
+│   └── server.js
+│
+└── README.md
+
+---
+
+⚙️ Installation & Setup
+
+Clone the repository
+
+git clone https://github.com/your-username/StudyLaneX.git
+
+Install dependencies
+
+npm install
+
+Run the development server
+
+npm run dev
+
+---
+
+📌 Future Improvements
+
+- Authentication system (Login / Signup)
+- Course listing and filtering
+- Admin dashboard
+- Student progress tracking
+
+---
+
+👩‍💻 Author
+
+Shruti Verma
+
+B.Tech IT Student | MERN Stack Learner
+
+---
+
+⭐ If you like this project, feel free to give it a star on GitHub!
