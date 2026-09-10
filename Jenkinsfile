@@ -22,4 +22,20 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 echo "Logging into Docker Hub..."
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {     sh '''         echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin     '''          echo "Pushing Frontend..."     sh "docker push ${FRONTEND_IMAGE}:latest"          echo "Pushing Backend..."     sh "docker push ${BACKEND_IMAGE}:latest" }
+               withCredentials([
+    usernamePassword(
+        credentialsId: 'dockerhub-creds',
+        passwordVariable: 'DOCKER_PASS',
+        usernameVariable: 'DOCKER_USER'
+    )
+]) {
+    sh '''
+        echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+    '''
+
+    echo "Pushing Frontend..."
+    sh "docker push ${FRONTEND_IMAGE}:latest"
+
+    echo "Pushing Backend..."
+    sh "docker push ${BACKEND_IMAGE}:latest"
+}
